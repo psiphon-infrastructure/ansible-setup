@@ -1,6 +1,6 @@
 #!/bin/bash
 # This script clones a number of ansible playbooks and roles.
-REPOSITORY="https://github.com/mfallone"
+REPOSITORY="https://github.com/psiphon-infrastructure"
 # Change dir to roles path. Defined in `setup.sh` script.
 
 if [ -z ${ANSIBLE_ROLES} ]; then
