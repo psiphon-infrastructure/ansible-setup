@@ -1,0 +1,6 @@
+---
+# file: main.yaml
+- hosts: prometheus-servers
+  become: true
+  roles:
+    - ansible-role-prometheus
