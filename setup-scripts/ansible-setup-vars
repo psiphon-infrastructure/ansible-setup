@@ -1,0 +1,5 @@
+# ansible-vars
+# common vars used across scripts
+export ANSIBLE_ROLES="roles"
+export ANSIBLE_INVENTORY_PATH="inventory"
+export ANSIBLE_INVENTORY="inventory/production"

@@ -1,0 +1,6 @@
+.ssh
+.vault_pass
+*.retry
+ansible.cfg
+inventory
+roles
