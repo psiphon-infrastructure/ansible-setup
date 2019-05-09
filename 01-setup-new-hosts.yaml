@@ -5,6 +5,7 @@
     ansible_ssh_pass: "{{ setup_ssh_password }}"
     ansible_become_pass: "{{ setup_ssh_password }}"
     ansible_update_setup_user_password: false
+    ansible_ssh_user: "{{ setup_user }}"
   remote_user: "{{ setup_user }}"
   become: false
 
