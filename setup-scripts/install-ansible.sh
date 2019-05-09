@@ -15,6 +15,7 @@ if [ ${OS_DISTRO} == 'ubuntu' ]; then
     apt-add-repository --yes --update ppa:ansible/ansible
     apt install -y -f ansible
 elif [ ${OS_DISTRO} == 'debian' ]; then
+    echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" > /etc/apt/sources.list.d/ansible.list
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
     apt update
     apt install -y -f ansible sudo git
