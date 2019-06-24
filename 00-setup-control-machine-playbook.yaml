@@ -9,7 +9,7 @@
     
     - name: Git Clone ansible-role-common repository
       git:
-        repo: "git@github.com:mfallone/ansible-role-common.git"
+        repo: "git@github.com:Psiphon-Infrastructure/ansible-role-common.git"
         dest: ./roles/ansible-role-common
       ignore_errors: true
       when: file_details.stat.exists == False
