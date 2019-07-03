@@ -1,18 +1,28 @@
 [submodule "roles/ansible-role-common"]
 	path = roles/ansible-role-common
 	url = git@github.com:Psiphon-Infrastructure/ansible-role-common.git
+	branch = master
 [submodule "roles/ansible-role-control-machine"]
 	path = roles/ansible-role-control-machine
 	url = git@github.com:Psiphon-Infrastructure/ansible-role-control-machine.git
+	branch = master
 [submodule "roles/ansible-role-node-exporter"]
 	path = roles/ansible-role-node-exporter
 	url = git@github.com:Psiphon-Infrastructure/ansible-role-node-exporter.git
+	branch = master
 [submodule "roles/ansible-role-prometheus"]
 	path = roles/ansible-role-prometheus
 	url = git@github.com:Psiphon-Infrastructure/ansible-role-prometheus.git
+	branch = master
 [submodule "roles/ansible-role-reverse-proxy"]
 	path = roles/ansible-role-reverse-proxy
 	url = git@github.com:Psiphon-Infrastructure/ansible-role-reverse-proxy.git
+	branch = master
 [submodule "roles/geerlingguy.docker"]
 	path = roles/geerlingguy.docker
 	url = git@github.com:geerlingguy/ansible-role-docker.git
+	branch = master
+[submodule "ansible-playbooks"]
+	path = ansible-playbooks
+	url = git@github.com:Psiphon-Infrastructure/ansible-playbooks.git
+	branch = master
