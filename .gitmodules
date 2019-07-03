@@ -26,3 +26,7 @@
 	path = ansible-playbooks
 	url = git@github.com:Psiphon-Infrastructure/ansible-playbooks.git
 	branch = master
+[submodule "roles/ansible-role-alert-manager"]
+	path = roles/ansible-role-alert-manager
+	url = git@github.com:Psiphon-Infrastructure/ansible-role-alert-manager.git
+	branch = master
