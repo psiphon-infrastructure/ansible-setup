@@ -1,7 +1,8 @@
-.ssh
+.ssh*
 .vault_pass
 *.retry
 ansible.cfg
-inventory
-roles
 files
+inventory
+templates
+ansible_secrets
