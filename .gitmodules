@@ -30,3 +30,11 @@
 	path = roles/ansible-role-alert-manager
 	url = git@github.com:Psiphon-Infrastructure/ansible-role-alert-manager.git
 	branch = master
+[submodule "roles/ansible-role-vmware-tools.git"]
+	path = roles/ansible-role-vmware-tools.git
+	url = git@github.com:Psiphon-Infrastructure/ansible-role-vmware-tools.git
+	branch = master
+[submodule "roles/ansible-role-vmware-tools"]
+	path = roles/ansible-role-vmware-tools
+	url = git@github.com:Psiphon-Infrastructure/ansible-role-vmware-tools.git
+	branch = master
