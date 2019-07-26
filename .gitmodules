@@ -38,3 +38,7 @@
 	path = roles/ansible-role-vmware-tools
 	url = git@github.com:Psiphon-Infrastructure/ansible-role-vmware-tools.git
 	branch = master
+[submodule "roles/ansible-role-ipa-client-install"]
+	path = roles/ansible-role-ipa-client-install
+	url = git@github.com:Psiphon-Infrastructure/ansible-role-ipa-client-install.git
+	branch = master
