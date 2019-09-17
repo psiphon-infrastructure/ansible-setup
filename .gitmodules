@@ -42,3 +42,7 @@
 	path = roles/ansible-role-ipa-client-install
 	url = git@github.com:Psiphon-Infrastructure/ansible-role-ipa-client-install.git
 	branch = master
+[submodule "ansible-freeipa"]
+	path = ansible-freeipa
+	url = https://github.com/freeipa/ansible-freeipa.git
+	branch = master
