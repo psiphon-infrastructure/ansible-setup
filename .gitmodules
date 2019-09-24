@@ -46,3 +46,7 @@
 	path = ansible-freeipa
 	url = https://github.com/freeipa/ansible-freeipa.git
 	branch = master
+[submodule "roles/ansible-role-mercurial"]
+	path = roles/ansible-role-mercurial
+	url = git@github.com:Psiphon-Infrastructure/ansible-role-mercurial.git
+	branch = master
