@@ -50,3 +50,7 @@
 	path = roles/ansible-role-mercurial
 	url = git@github.com:Psiphon-Infrastructure/ansible-role-mercurial.git
 	branch = master
+[submodule "roles/ansible-role-ipa-certificate"]
+	path = roles/ansible-role-ipa-certificate
+	url = git@github.com:Psiphon-Infrastructure/ansible-role-ipa-certificate.git
+	branch = master
