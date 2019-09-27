@@ -54,3 +54,7 @@
 	path = roles/ansible-role-ipa-certificate
 	url = git@github.com:Psiphon-Infrastructure/ansible-role-ipa-certificate.git
 	branch = master
+[submodule "roles/ansible-role-gitlab"]
+	path = roles/ansible-role-gitlab
+	url = git@github.com:Psiphon-Infrastructure/ansible-role-gitlab
+	branch = master
