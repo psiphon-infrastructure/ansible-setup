@@ -58,3 +58,7 @@
 	path = roles/ansible-role-gitlab
 	url = git@github.com:Psiphon-Infrastructure/ansible-role-gitlab
 	branch = master
+[submodule "roles/ansible-role-bookstack"]
+	path = roles/ansible-role-bookstack
+	url = git@gitlab.c583.psiroom.net:sysadmin/ansible-role-bookstack.git
+	branch = master
