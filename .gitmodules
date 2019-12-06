@@ -62,3 +62,7 @@
 	path = roles/ansible-role-bookstack
 	url = git@gitlab.c583.psiroom.net:sysadmin/ansible-role-bookstack.git
 	branch = master
+[submodule "roles/ansible-role-speedtester"]
+	path = roles/ansible-role-speedtester
+	url = git@github.com:Psiphon-Infrastructure/ansible-role-speedtester.git
+	branch = master
