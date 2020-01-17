@@ -1,0 +1,81 @@
+---
+# file: provision-host.yaml
+- hosts: "{{ target }}"
+  vars:
+    ansible_ssh_pass: "{{ setup_ssh_password }}"
+    ansible_become_pass: "{{ setup_ssh_password }}"
+    ansible_update_setup_user_password: false
+    ansible_ssh_user: "{{ setup_user }}"
+    new_setup_ssh_password: "{{ vault_new_setup_ssh_password | default(setup_ssh_password) }}"
+#    ansible_ssh_private_key_file: "{{ custom_ansible_ssh_private_key_file | default(ansible_ssh_private_key_file) }}"
+  remote_user: "{{ setup_user }}"
+  become: false
+  tasks:
+  - include_role:
+      name: 'ansible-role-common'
+
+  - name: Connect using new user
+    set_fact:
+      ansible_ssh_user: "{{ ansible_new_user }}"
+
+  - name: Check if user password should be updated
+    user:
+      name: "{{ setup_user }}"
+      password: "{{ new_setup_ssh_password | password_hash('sha512') }}"
+    when: ansible_update_setup_user_password == true and new_setup_ssh_password != setup_ssh_password
+    become: true
+    register: password_changed
+
+  - name: Update Vault
+    block:
+      - name: Check if ansible host path exists
+        local_action: 
+          module: file
+          path: "{{ inventory_dir }}/host_vars/{{ hostname_fqdn }}"
+          state: directory
+          recurse: true
+
+      - name: Check if vault file exists
+        local_action: 
+          module: file
+          path: "{{ inventory_dir }}/host_vars/{{ hostname_fqdn }}/{{ ansible_host_vault_file | default('vault') }}"
+          state: file
+        register: vault_file_exists
+        ignore_errors: true
+
+      - name: "decrypt vault file (if required)"
+        local_action:
+          module: command
+          argv:
+            - ansible-vault
+            - "decrypt"
+            - "--vault-id"
+            - "{{ ansible_local_vault_file_path }}"
+            - "{{ inventory_dir }}/host_vars/{{ hostname_fqdn }}/{{ ansible_host_vault_file | default('vault') }}"
+        when: vault_file_exists.failed == false
+        ignore_errors: true
+
+      - name: Create vault file if required
+        local_action:
+          module: file
+          path: "{{ inventory_dir }}/host_vars/{{ hostname_fqdn }}/{{ ansible_host_vault_file | default('vault') }}"
+          state: touch
+
+      - name: 
+        local_action:
+          module: lineinfile
+          path: "{{ inventory_dir }}/host_vars/{{ hostname_fqdn }}/{{ ansible_host_vault_file |default('vault') }}"
+          regexp: '^"vault_setup_ssh_password": .*'
+          line: '"vault_setup_ssh_password": "{{ new_setup_ssh_password }}"'
+          state: present
+
+      - name: Encrypt vault file
+        local_action:
+          module: command
+          argv:
+            - ansible-vault
+            - "encrypt"
+            - "--vault-id"
+            - "{{ ansible_local_vault_file_path }}"
+            - "{{ inventory_dir }}/host_vars/{{ hostname_fqdn }}/{{ ansible_host_vault_file }}"
+    when: password_changed.changed == true

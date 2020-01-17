@@ -66,3 +66,7 @@
 	path = roles/ansible-role-speedtester
 	url = git@github.com:Psiphon-Infrastructure/ansible-role-speedtester.git
 	branch = master
+[submodule "roles/ansible-role-syslog"]
+	path = roles/ansible-role-syslog
+	url = git@gitlab.c583.psiroom.net:sysadmin/ansible-role-syslog.git
+	branch = master
